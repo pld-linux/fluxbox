@@ -1,0 +1,15 @@
+--- fluxbox-0.1.14/configure.in~	Sun Dec  8 02:38:52 2002
++++ fluxbox-0.1.14/configure.in	Thu Dec 12 18:13:36 2002
+@@ -223,10 +223,8 @@
+ AM_CONDITIONAL(GNOME, test x$GNOME = xtrue)
+ 
+ AC_MSG_CHECKING([whether to have Xft support])
+-AM_PATH_XFT(yes,
+-	XFT=true,
+-	XFT=false
+-)
++XFT=true,
++
+ 
+ if test "x$XFT" = "xtrue" ; then
+ 	AC_DEFINE(USE_XFT, 1, "antialias support")	
