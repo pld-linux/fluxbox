@@ -11,7 +11,7 @@ Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-Source0:	http://distfiles.pld-linux.org/src/%{name}-%{version}.tar.bz2
+Source0:	http://distfiles.pld-linux.org/src/%{name}-%{version}_%{snap}.tar.bz2
 # Source0-md5:	2f77544e07fedb5d1652885f74fc9dd3
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
