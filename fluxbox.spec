@@ -7,6 +7,7 @@ Release:	1
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://www.fluxbox.org/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	65efdc077f9e6840346ce5382bf5e2c8
 Source1:	%{name}.desktop
 Patch0:		%{name}-XFT.patch
 Patch1:		%{name}-nls-codesets.patch
