@@ -1,0 +1,40 @@
+diff -U 1 -r fluxbox-0.1.9/src/Window.cc fluxbox-0.1.9-bugfix2/src/Window.cc
+--- fluxbox-0.1.9/src/Window.cc	Tue May 21 23:22:05 2002
++++ fluxbox-0.1.9-bugfix2/src/Window.cc	Mon Jun  3 19:12:23 2002
+@@ -295,4 +295,5 @@
+ 
+-	//use tab? delayed this so that tabs wont "flicker" when creating windows
+-	if (decorations.tab && fluxbox->useTabs())
++	// use tab? and don't create a tab on windows that's not
++	// maximizable as default (such as dialogs)
++	if (decorations.tab && fluxbox->useTabs() && decorations.maximize)
+ 		tab = new Tab(this, 0, 0);
+@@ -435,3 +436,5 @@
+ 
+-	if (client.window) {
++	// Make sure we don't remove
++	// a slit client from the list
++	if (managed) {
+ 		fluxbox->removeWindowSearch(client.window);
+Only in fluxbox-0.1.9-bugfix2/src: Window.cc~
+diff -U 1 -r fluxbox-0.1.9/src/Workspace.cc fluxbox-0.1.9-bugfix2/src/Workspace.cc
+--- fluxbox-0.1.9/src/Workspace.cc	Fri May 17 13:03:36 2002
++++ fluxbox-0.1.9-bugfix2/src/Workspace.cc	Mon Jun  3 19:11:51 2002
+@@ -24,3 +24,3 @@
+ 
+-// $Id$
++// $Id$
+ 
+@@ -95,2 +95,3 @@
+ 	//if there isn't any window that's focused, just add it to the end of the list
++	/*
+ 	if (focused == 0) {
+@@ -115,4 +116,6 @@
+ 	}
+-	
+-	
++	*/
++	//add to list
++	m_clientmenu.insert(w->getTitle().c_str());
++	windowList.push_back(w);
+ 	
