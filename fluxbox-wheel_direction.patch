@@ -1,6 +1,6 @@
 diff -ur fluxbox.orig/src/fluxbox.cc fluxbox/src/fluxbox.cc
 --- fluxbox.orig/src/fluxbox.cc	2004-07-16 03:47:46.000000000 +0200
-+++ fluxbox/src/fluxbox.cc	2004-08-06 19:19:32.075664744 +0200
++++ fluxbox/src/fluxbox.cc	2004-08-06 19:34:54.569424376 +0200
 @@ -1146,9 +1146,9 @@
                  screen->getRootmenu().grabInputFocus();
              }
@@ -13,3 +13,18 @@ diff -ur fluxbox.orig/src/fluxbox.cc fluxbox/src/fluxbox.cc
          }
          
      } break;
+diff -ur fluxbox.orig/src/Toolbar.cc fluxbox/src/Toolbar.cc
+--- fluxbox.orig/src/Toolbar.cc	2004-07-15 18:11:58.000000000 +0200
++++ fluxbox/src/Toolbar.cc	2004-08-06 19:35:09.766114128 +0200
+@@ -504,9 +504,9 @@
+     if (re.button == 1)
+         raise();
+     else if (re.button == 4) //mousewheel scroll up
+-        screen().nextWorkspace(1);
+-    else if (re.button == 5)	//mousewheel scroll down
+         screen().prevWorkspace(1);
++    else if (re.button == 5)	//mousewheel scroll down
++        screen().nextWorkspace(1);
+ }
+ 
+ void Toolbar::enterNotifyEvent(XCrossingEvent &not_used) {
