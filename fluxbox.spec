@@ -3,7 +3,7 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.8
-Release:	1
+Release:	2
 Epoch:         	0
 License:	BSD-like
 Group:		X11/Window Managers
@@ -11,6 +11,7 @@ Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	1f8192b768355b010ff8ae7a694bcf0c
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
+Source3:	%{name}-pld.jpg
 Patch0:		%{name}-XFT.patch
 Patch1:		%{name}-nls-codesets.patch
 URL:		http://fluxbox.sourceforge.net/
@@ -66,6 +67,10 @@ rm -f missing
 
 %{__make}
 
+# Let's make PLD theme defaul
+echo "rootCommand:	fbsetbg -f /usr/share/fluxbox/fluxbox-pld.jpg" \
+	>> data/styles/Meta
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir}}
@@ -75,6 +80,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir}}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
+install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/fluxbox
 
 %clean
 rm -rf $RPM_BUILD_ROOT
