@@ -2,26 +2,22 @@ Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):    Ma³y i szybki menad¿er okien dla X Window oparty o Blackbox
 Name:		fluxbox
 Version:	0.1.9
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
-URL:		http://fluxbox.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fluxbox/%{name}-%{version}.tar.bz2
 Source1:        %{name}.desktop
 Patch0:		http://fluxbox.sourceforge.net/download/patches/fluxbox-0.1.9-bugfix1.patch
 Patch1:		http://fluxbox.sourceforge.net/download/patches/fluxbox-0.1.9-bugfix2.patch
+URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
+BuildRequires:	libstdc++-devel
 Obsoletes:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
 %define         _mandir         %{_prefix}/man
 %define         _sysconfdir     /etc/X11/%{name}
-
-%define		_gcc_ver	%(%{__cc} -dumpversion | cut -b 1)
-%if %{_gcc_ver} == 2
-%define		__cxx		"%{__cc}"
-%endif
 
 %description
 Fluxbox is yet another windowmanager for X. It's based on the Blackbox
@@ -32,10 +28,11 @@ and blackbox then? The answer is: LOTS!
 Have a look at the homepage for more info ;)
 
 %description -l pl
-Fluxbox jest mened¿erem okien dla X Window opartym na Blackbox 0.61.1
-Jego zalet± jest estetyczny i szybki interfejs z wieloma pulpitami 
-i prostym menu. Wbudowano weñ tak¿e algorytm rysowania dekoracji okien, 
-które mog± byæ jednokolorowe, gradientowe lub trójwymiarowe. 
+Fluxbox jest mened¿erem okien dla X Window opartym na Blackboksie
+0.61.1. Jego zalet± jest estetyczny i szybki interfejs z wieloma
+pulpitami i prostym menu. Wbudowano weñ tak¿e algorytm rysowania
+dekoracji okien, które mog± byæ jednokolorowe, gradientowe lub
+trójwymiarowe. 
 
 %prep
 rm -rf $RPM_BUILD_ROOT
@@ -46,13 +43,12 @@ rm -rf $RPM_BUILD_ROOT
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c
-./configure \
+%{__autoconf}
+%{__automake}
+%configure \
 	--enable-kde \
-	--enable-gnome \
-	--prefix=/usr/X11R6 \
-	--mandir=%{_mandir}
+	--enable-gnome
+
 %{__make}
 
 %install
