@@ -27,7 +27,6 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
 BuildRequires:	xrender-devel
-BuildRequires:	vfmg
 Requires(post):	vfmg >= 0.9.16-3
 Requires:	vfmg >= 0.9.16-3
 Provides:	blackbox
