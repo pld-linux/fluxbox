@@ -9,6 +9,7 @@ Group:		X11/Window Managers
 Source0:	http://www.fluxbox.org/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	65efdc077f9e6840346ce5382bf5e2c8
 Source1:	%{name}.desktop
+Source2:        %{name}-xsession.desktop
 Patch0:		%{name}-XFT.patch
 Patch1:		%{name}-nls-codesets.patch
 URL:		http://fluxbox.sourceforge.net/
@@ -64,12 +65,13 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_wmpropsdir}
+install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -99,5 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_datadir}/fluxbox/nls/ru*
 %lang(sv) %{_datadir}/fluxbox/nls/sv*
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
+%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
 %{_mandir}/man1/*
