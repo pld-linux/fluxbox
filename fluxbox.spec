@@ -6,8 +6,8 @@ Version:	0.9.2
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
+# Source0-md5:	e5a6eb34fa6b209b0e6db45b85df526c
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5: 17d2329114f7b331fde82c9f441de0ef
 Source1:	%{name}.desktop
 URL:		http://fluxbox.sourceforge.net/
 Patch0:		%{name}-XFT.patch
