@@ -16,9 +16,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define         _mandir         %{_prefix}/man
 %define         _sysconfdir     /etc/X11/%{name}
 
-%define         _gcc_ver        %(%{__cc} --version | cut -b 1)
+%define		_gcc_ver	%(%{__cc} -dumpversion | cut -b 1)
 %if %{_gcc_ver} == 2
-%define         __cxx           "%{__cc}"
+%define		__cxx		"%{__cc}"
 %endif
 
 %description
