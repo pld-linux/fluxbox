@@ -29,6 +29,7 @@ BuildRequires:	xft-devel
 BuildRequires:	xrender-devel
 Requires(post):	vfmg >= 0.9.16-3
 Requires:	vfmg >= 0.9.16-3
+Requires:	xinitrc-ng
 Provides:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	blackbox
