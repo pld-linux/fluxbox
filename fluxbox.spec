@@ -1,5 +1,5 @@
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
-Summary(pl):    Ma³y i szybki menad¿er okien dla X Window oparty o Blackbox
+Summary(pl):    Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Name:		fluxbox
 Version:	0.1.13
 Release:	1
@@ -28,7 +28,7 @@ and blackbox then? The answer is: LOTS!
 Have a look at the homepage for more info ;)
 
 %description -l pl
-Fluxbox jest mened¿erem okien dla X Window opartym na Blackboksie
+Fluxbox jest zarz±dc± okien dla X Window opartym na Blackboksie
 0.61.1. Jego zalet± jest estetyczny i szybki interfejs z wieloma
 pulpitami i prostym menu. Wbudowano weñ tak¿e algorytm rysowania
 dekoracji okien, które mog± byæ jednokolorowe, gradientowe lub
