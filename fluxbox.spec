@@ -1,6 +1,7 @@
 
-%define		snap 20040806
+%bcond_with	old_wheel	# build with right wheel direction
 
+%define		snap 20040806
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
@@ -64,7 +65,7 @@ o blackbox?
 %setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+%{!?with_old_wheel:%patch2 -p1}
 
 %build
 rm -f missing
