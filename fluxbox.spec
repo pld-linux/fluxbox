@@ -6,7 +6,7 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
@@ -17,6 +17,7 @@ Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
 Source4:        %{name}-pld.jpg
+Source5:        %{name}.menu
 Patch0:		%{name}-nls-codesets.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
@@ -26,6 +27,8 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
 BuildRequires:	xrender-devel
+BuildRequires:	vfmg
+Requires:	vfmg >= 0.9.16-2
 Provides:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	blackbox
@@ -83,9 +86,14 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/styles/PLD
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
+install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu
+touch $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+vfmg -i -f -x -c -s fluxbox > %{_datadir}/fluxbox/menu2 2>/dev/null
 
 %files
 %defattr(644,root,root,755)
