@@ -5,7 +5,7 @@ Version:	0.1.7
 Release:	1
 Group:		X11/Window Managers
 License:	GPL
-URL:		http://fluxbox.sourceforge.net
+URL:		http://fluxbox.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source1:        %{name}.desktop
 BuildRequires:	XFree86-devel
