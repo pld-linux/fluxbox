@@ -78,7 +78,7 @@ rm -f missing
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/{xsessions,wallpapers,%{name}/styles},%{_wmpropsdir}} \
-	$RPM_BUILD_ROOT%{_sysconfdir}/X11/fluxbox
+	$RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -88,20 +88,20 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/styles/PLD
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
 install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu
-touch $RPM_BUILD_ROOT%{_sysconfdir}/X11/fluxbox/menu2
+touch $RPM_BUILD_ROOT%{_sysconfdir}/menu2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/X11/fluxbox/menu2 2>/dev/null
+vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/menu2 2>/dev/null
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
-%dir %{_sysconfdir}/X11/fluxbox
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/X11/fluxbox/menu2
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
 %dir %{_datadir}/fluxbox/nls
