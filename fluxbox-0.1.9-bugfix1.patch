@@ -1,6 +1,0 @@
---- fluxbox-0.1.9/configure.in	Thu May 23 12:34:44 2002
-+++ fluxbox-0.1.9-bugfix1/configure.in	Tue Jun  4 11:46:14 2002
-@@ -189,2 +189,3 @@
- AC_SUBST(NLS)
-+CXXFLAGS="$CXXFLAGS $NLS"
- 
