@@ -1,27 +1,26 @@
 
 %bcond_with	old_wheel	# build with right wheel direction
 
-%define		snap 20040815
+%define		snap 20040904
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	0.9.9
-Release:	0.%{snap}.2
+Version:	0.9.10
+Release:	0.%{snap}.1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
-# Source0-md5:	97c79232c7e759eaf4fb227ea8a78555
+# Source0-md5:	3e72116b7bb9f89eb9cf0cf3b1e57d8f
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
 Source4:        %{name}-pld.jpg
 Source5:        %{name}.menu
-Patch0:		%{name}-fontcache.patch
-Patch1:		%{name}-dont_generate_menu.patch
-Patch2:		%{name}-wheel_direction.patch
+Patch0:		%{name}-dont_generate_menu.patch
+Patch1:		%{name}-wheel_direction.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
@@ -64,8 +63,7 @@ o blackbox?
 %prep
 %setup -q -n %{name}
 %patch0 -p1
-%patch1 -p1
-%{!?with_old_wheel:%patch2 -p1}
+%{!?with_old_wheel:%patch1 -p1}
 
 %build
 rm -f missing
