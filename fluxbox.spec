@@ -3,7 +3,7 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	2
+Release:	3
 Epoch:         	0
 License:	BSD-like
 Group:		X11/Window Managers
@@ -11,6 +11,8 @@ Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	b96f9b23b6605274bf0f7c3f84d080f1
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
+Source3:        %{name}-pld.style
+Source4:        %{name}-pld.jpg
 Patch0:		%{name}-nls-codesets.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
@@ -19,6 +21,7 @@ BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
+BuildRequires:	xrender-devel
 Provides:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	blackbox
@@ -66,13 +69,15 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/{xsessions,wallpapers,%{name}/styles},%{_wmpropsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
+install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/styles/PLD
+install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -107,4 +112,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
+%{_datadir}/wallpapers/*
 %{_mandir}/man1/*
