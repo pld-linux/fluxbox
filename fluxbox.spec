@@ -6,7 +6,7 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	0.%{snap}.2
+Release:	0.%{snap}.3
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
@@ -28,7 +28,7 @@ BuildRequires:	libtool
 BuildRequires:	xft-devel
 BuildRequires:	xrender-devel
 BuildRequires:	vfmg
-Requires:	vfmg >= 0.9.16-2
+Requires:	vfmg >= 0.9.16-3
 Provides:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	blackbox
@@ -77,7 +77,8 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/{xsessions,wallpapers,%{name}/styles},%{_wmpropsdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/{xsessions,wallpapers,%{name}/styles},%{_wmpropsdir}} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/X11/fluxbox
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -87,7 +88,7 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/styles/PLD
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
 install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu
-touch $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu2
+touch $RPM_BUILD_ROOT%{_sysconfdir}/X11/fluxbox/menu2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -99,6 +100,8 @@ vfmg -i -f -x -c -s fluxbox > %{_datadir}/fluxbox/menu2 2>/dev/null
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%dir %{_sysconfdir}/X11/fluxbox
+%config %{_sysconfdir}/X11/fluxbox/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
 %dir %{_datadir}/fluxbox/nls
