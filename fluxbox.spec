@@ -2,19 +2,20 @@
 # Conditional build:
 %bcond_with	old_wheel	# build with right wheel direction
 #
-%define		snap 20041111
+#%define		snap 20041111
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	0.9.10
-Release:	0.%{snap}.2
+Version:	0.9.11
+#Release:	0.%{snap}.2
+Release:	1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
-#Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
-# Source0-md5:	dd834f348a5473d7daca2a58fb029d30
+Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
+# Source0-md5:	b0ed7d23813fbf1d8e1c7d2d490f9512
+#Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
@@ -62,7 +63,7 @@ seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
 o blackbox?
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 %{!?with_old_wheel:%patch1 -p1}
 
@@ -78,7 +79,8 @@ echo "session.screen0.antialias: true" >> data/init.in
 	--enable-slit \
 	--enable-kde \
 	--enable-gnome \
-	--enable-xinerama
+	--enable-xinerama \
+	--enable-nls
 
 %{__make}
 
@@ -114,28 +116,28 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
-#%dir %{_datadir}/fluxbox/nls
-#%{_datadir}/fluxbox/nls/C
+%dir %{_datadir}/fluxbox/nls
+%{_datadir}/fluxbox/nls/C
 #%{_datadir}/fluxbox/nls/POSIX
 #%{_datadir}/fluxbox/nls/US_ASCII
 #%{_datadir}/fluxbox/nls/en*
-#%lang(bg) %{_datadir}/fluxbox/nls/bg*
-#%lang(da) %{_datadir}/fluxbox/nls/da*
-#%lang(de) %{_datadir}/fluxbox/nls/de*
-#%lang(es) %{_datadir}/fluxbox/nls/es*
-#%lang(et) %{_datadir}/fluxbox/nls/et*
-#%lang(fr) %{_datadir}/fluxbox/nls/fr*
-#%lang(it) %{_datadir}/fluxbox/nls/it*
-#%lang(ja) %{_datadir}/fluxbox/nls/ja*
-#%lang(lv) %{_datadir}/fluxbox/nls/lv*
-#%lang(nl) %{_datadir}/fluxbox/nls/nl*
-#%lang(pl) %{_datadir}/fluxbox/nls/pl*
-#%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
-#%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
-#%lang(ru) %{_datadir}/fluxbox/nls/ru*
-#%lang(sl) %{_datadir}/fluxbox/nls/sl*
-#%lang(sv) %{_datadir}/fluxbox/nls/sv*
-#%lang(tr) %{_datadir}/fluxbox/nls/tr*
+%lang(bg) %{_datadir}/fluxbox/nls/bg*
+%lang(da) %{_datadir}/fluxbox/nls/da*
+%lang(de) %{_datadir}/fluxbox/nls/de*
+%lang(es) %{_datadir}/fluxbox/nls/es*
+%lang(et) %{_datadir}/fluxbox/nls/et*
+%lang(fr) %{_datadir}/fluxbox/nls/fr*
+%lang(it) %{_datadir}/fluxbox/nls/it*
+%lang(ja) %{_datadir}/fluxbox/nls/ja*
+%lang(lv) %{_datadir}/fluxbox/nls/lv*
+%lang(nl) %{_datadir}/fluxbox/nls/nl*
+%lang(pl) %{_datadir}/fluxbox/nls/pl*
+%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
+%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
+%lang(ru) %{_datadir}/fluxbox/nls/ru*
+%lang(sl) %{_datadir}/fluxbox/nls/sl*
+%lang(sv) %{_datadir}/fluxbox/nls/sv*
+%lang(tr) %{_datadir}/fluxbox/nls/tr*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
 %{_datadir}/wallpapers/*
