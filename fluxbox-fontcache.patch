@@ -1,22 +1,22 @@
-diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_20040713/src/FbTk/XmbFontImp.cc
---- fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc	2004-02-10 20:03:42.000000000 +0100
-+++ fluxbox-0.9.9_20040713/src/FbTk/XmbFontImp.cc	2004-07-14 00:46:07.017261128 +0200
-@@ -133,6 +148,7 @@
+diff -urN fluxbox.orig/src/FbTk/XmbFontImp.cc fluxbox/src/FbTk/XmbFontImp.cc
+--- fluxbox.orig/src/FbTk/XmbFontImp.cc	2004-08-16 11:43:01.921018392 +0200
++++ fluxbox/src/FbTk/XmbFontImp.cc	2004-08-16 12:21:07.394573600 +0200
+@@ -133,6 +133,7 @@
          if (nmissing) XFreeStringList(missing);
  
          setlocale(LC_CTYPE, "C");
-+        cerr << "nmissing! defaulting to C Locale" << endl;
++	cerr << "nmissing! defaulting to C Locale" << endl;
          fs = XCreateFontSet(display, fontname,
                              &missing, &nmissing, &def);
          setlocale(LC_CTYPE, "");
-@@ -185,7 +201,23 @@
+@@ -184,73 +185,101 @@
+ 
  };
  namespace FbTk {
- 
+-
 -XmbFontImp::XmbFontImp(const char *filename, bool utf8):m_fontset(0), m_utf8mode(utf8) {
 +std::map <std::string, XmbFontImp::mbFontInfo *> XmbFontImp::fontDict;
-+
-+void XmbFontImp::freeFont(const std::string &fontname) { 
++void XmbFontImp::freeFont(const std::string &fontname) {
 +    std::map <std::string, XmbFontImp::mbFontInfo *>::iterator i;
 +    mbFontInfo *font;
 +    if ((i = XmbFontImp::fontDict.find(fontname)) != fontDict.end()) {
@@ -29,12 +29,9 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
 +      }
 +    }
 +}
-+
 +XmbFontImp::XmbFontImp(const char *filename, bool utf8):m_font(0), m_utf8mode(utf8) {
- #ifdef DEBUG
- #ifdef X_HAVE_UTF8_STRING
-     cerr<<"Using utf8 = "<<utf8<<endl;
-@@ -198,20 +230,36 @@
+     if (filename != 0)
+         load(filename);
  }
  
  XmbFontImp::~XmbFontImp() {
@@ -57,6 +54,7 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
 -        XFreeFontSet(App::instance()->display(), m_fontset);
 -    m_fontset = set;
 -    m_setextents = XExtentsOfFontSet(m_fontset);
+-
 +    if ( (i = XmbFontImp::fontDict.find(fontname)) != XmbFontImp::fontDict.end() ) {
 +      /* we"ve already got the font.  rock */
 +      font = i->second;
@@ -72,15 +70,14 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
 +        font->extents = XExtentsOfFontSet(set);
 +      font->name = fontname;
 +      font->refcount = 1;
-+      
++
 +      XmbFontImp::fontDict.insert(std::map <std::string, XmbFontImp::mbFontInfo*>::value_type(fontname, font));
 +      if (m_font) freeFont(m_font->name);
 +      m_font = font;
 +    }
- 
      return true;	
  }
-@@ -219,34 +267,34 @@
+ 
  void XmbFontImp::drawText(Drawable w, int screen, GC gc, const char *text, 
                            size_t len, int x, int y) const {
  
@@ -90,15 +87,16 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
  #ifdef X_HAVE_UTF8_STRING
      if (m_utf8mode) {
 -        Xutf8DrawString(App::instance()->display(), w, m_fontset,
-+        Xutf8DrawString(App::instance()->display(), w, m_font->set,
++	Xutf8DrawString(App::instance()->display(), w, m_font->set,
  			gc, x, y,
  			text, len);
      } else 
  #endif //X_HAVE_UTF8_STRING
  	{
 -            XmbDrawString(App::instance()->display(), w, m_fontset,
+-                          gc, x, y,
 +            XmbDrawString(App::instance()->display(), w, m_font->set,
-                           gc, x, y,
++	                  gc, x, y,
                            text, len);
  	}
  }
@@ -107,21 +105,22 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
 -    if (m_fontset == 0)
 +    if (m_font == 0)
          return 0;
+ 
      XRectangle ink, logical;
  #ifdef X_HAVE_UTF8_STRING
      if (m_utf8mode) {
 -        Xutf8TextExtents(m_fontset, text, len,
 +        Xutf8TextExtents(m_font->set, text, len,
                           &ink, &logical);
-     } else 
+         if (logical.width != 0)
+             return logical.width;
+     }
  #endif // X_HAVE_UTF8_STRING
- 	{
--            XmbTextExtents(m_fontset, text, len,
-+            XmbTextExtents(m_font->set, text, len,
-                            &ink, &logical);
- 	}
  
-@@ -254,9 +302,9 @@
+-    XmbTextExtents(m_fontset, text, len,
++    XmbTextExtents(m_font->set, text, len,
+                    &ink, &logical);
+     return logical.width;
  }
  
  unsigned int XmbFontImp::height() const {
@@ -133,9 +132,9 @@ diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.cc fluxbox-0.9.9_200407
  }
  
  }; // end namespace FbTk
-diff -ur fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.hh fluxbox-0.9.9_20040713/src/FbTk/XmbFontImp.hh
---- fluxbox-0.9.9_20040713.orig/src/FbTk/XmbFontImp.hh	2003-12-16 18:06:52.000000000 +0100
-+++ fluxbox-0.9.9_20040713/src/FbTk/XmbFontImp.hh	2004-07-14 00:52:19.028706792 +0200
+diff -urN fluxbox.orig/src/FbTk/XmbFontImp.hh fluxbox/src/FbTk/XmbFontImp.hh
+--- fluxbox.orig/src/FbTk/XmbFontImp.hh	2004-08-16 11:43:01.922018240 +0200
++++ fluxbox/src/FbTk/XmbFontImp.hh	2004-08-16 12:07:18.492585856 +0200
 @@ -26,6 +26,7 @@
  
  #include "FontImp.hh"
