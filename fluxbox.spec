@@ -55,7 +55,7 @@ seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
 o blackbox?
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}_%{snap}
 %patch0 -p1
 
 %build
