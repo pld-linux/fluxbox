@@ -1,0 +1,15 @@
+diff -ur fluxbox.orig/data/Makefile.am fluxbox/data/Makefile.am
+--- fluxbox.orig/data/Makefile.am	2004-04-10 21:52:18.000000000 +0200
++++ fluxbox/data/Makefile.am	2004-08-06 18:07:49.293787016 +0200
+@@ -12,11 +12,6 @@
+ 	@regex_cmd@ -e "s,@pkgdatadir@,$(pkgdatadir),g" $(srcdir)/init.in > init
+ 
+ menu: 			../util/fluxbox-generate_menu
+-	env	MENUFILENAME=menu \
+-		PREFIX="${prefix}" \
+-		MENUTITLE="Fluxbox-${VERSION}" \
+-		INSTALL=Yes \
+-		../util/fluxbox-generate_menu
+ 
+ ../util/fluxbox-generate_menu:
+ 	cd ../util && ${MAKE} fluxbox-generate_menu
