@@ -6,6 +6,7 @@
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
+Summary(de):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
 Version:	0.9.12
 #Release:	0.%{snap}.2
@@ -63,6 +64,13 @@ Blackbox 0.61.1. Fluxbox tem a aparência do blackbox e pode utilizar
 seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
 o blackbox?
 
+%description -l de
+Fluxbox ist ein weiterer Window Manager für X basierend auf dem
+Quellcode von Blackbox 0.61.1. Fluxbox ähnelt Blackbox und behandelt
+Styles, Farben, Fensterplatzierungen und ähnliche Dinge genauso wie
+Blackbox. Es ist somit 100% kompatibel zu den Blackbox Themes und
+Styles.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -115,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/menu2
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
 %dir %{_datadir}/fluxbox/nls
