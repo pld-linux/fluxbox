@@ -3,8 +3,8 @@ Summary(pl):    Ma³y i szybki menad¿er okien dla X Window oparty o Blackbox
 Name:		fluxbox
 Version:	0.1.8
 Release:	1
-Group:		X11/Window Managers
 License:	GPL
+Group:		X11/Window Managers
 URL:		http://fluxbox.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source1:        %{name}.desktop
@@ -22,7 +22,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %endif
 
 %description
-
 Fluxbox is yet another windowmanager for X. It's based on the Blackbox
 0.61.1 code. Fluxbox looks like blackbox and handles styles, colors,
 window placement and similar thing exactly like blackbox (100%
@@ -44,8 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 #aclocal
 #autoconf
 #automake -a -c
-./configure  --enable-kde \
-             --prefix=/usr/X11R6
+./configure \
+	--enable-kde \
+	--prefix=/usr/X11R6
 %{__make}
 
 %install
@@ -56,7 +56,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
 
-gzip -9nf AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
+gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
