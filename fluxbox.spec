@@ -18,8 +18,9 @@ BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
-Obsoletes:	blackbox
+Provides:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	blackbox
 
 %define         _sysconfdir     /etc/X11/%{name}
 %define		_wmpropsdir	/usr/share/wm-properties
@@ -65,7 +66,8 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_wmpropsdir}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 
