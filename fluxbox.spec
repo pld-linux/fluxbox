@@ -9,7 +9,7 @@ Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.12
 #Release:	0.%{snap}.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
@@ -27,6 +27,7 @@ URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	imlib2-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
@@ -80,7 +81,8 @@ echo "session.screen0.antialias: true" >> data/init.in
 	--enable-kde \
 	--enable-gnome \
 	--enable-xinerama \
-	--enable-nls
+	--enable-nls \
+	--enable-imlib2
 
 %{__make}
 
