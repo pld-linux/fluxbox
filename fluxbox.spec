@@ -11,6 +11,8 @@ Patch0:		http://fluxbox.sourceforge.net/download/patches/fluxbox-0.1.9-bugfix1.p
 Patch1:		http://fluxbox.sourceforge.net/download/patches/fluxbox-0.1.9-bugfix2.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 Obsoletes:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
