@@ -16,13 +16,13 @@
 #     session.menuFile: /home/you/.fluxbox/my-menu
 
 [begin] (Fluxbox)
-      [exec] (aterm) {aterm}
-      [exec] (xterm) {xterm}
+      [exec] (Aterm) {aterm}
+      [exec] (Xterm) {xterm}
       [exec] (Run) {fbrun}
 [submenu] (Applications)
 [include] (/etc/X11/fluxbox/menu2)
 [end]
-[submenu] (fluxbox menu)
+[submenu] (Fluxbox menu)
       [config] (Configure)
 [submenu] (System Styles) {Choose a style...}
       [stylesdir] (/usr/share/fluxbox/styles)
