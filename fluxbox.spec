@@ -4,7 +4,7 @@ Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.3
 Release:	1
-License:	GPL
+License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	1efd2ca0144ac3717d8d953df85d2160
@@ -12,11 +12,11 @@ Source1:	%{name}.desktop
 URL:		http://fluxbox.sourceforge.net/
 Patch0:		%{name}-XFT.patch
 BuildRequires:	XFree86-devel
-BuildRequires:	XFree86-xft-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	xft-devel
 Obsoletes:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
