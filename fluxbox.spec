@@ -1,6 +1,7 @@
-
+#
+# Conditional build:
 %bcond_with	old_wheel	# build with right wheel direction
-
+#
 %define		snap 20041111
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
@@ -14,7 +15,6 @@ Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
 # Source0-md5:	dd834f348a5473d7daca2a58fb029d30
-# Source0-size:	440412
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
@@ -66,9 +66,9 @@ o blackbox?
 %patch0 -p1
 %{!?with_old_wheel:%patch1 -p1}
 
-%build
-rm -f missing
 echo "session.screen0.antialias: true" >> data/init.in
+
+%build
 %{__libtoolize}
 %{__aclocal} -I .
 %{__autoheader}
