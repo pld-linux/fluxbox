@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=XSession
-Exec=startfluxbox
+Exec=fluxbox
 TryExec=fluxbox
 Name=Fluxbox
 Comment=A highly configurable and low resource window manager based on Blackbox
