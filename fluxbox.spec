@@ -101,7 +101,7 @@ vfmg -i -f -x -c -s fluxbox > %{_datadir}/fluxbox/menu2 2>/dev/null
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/X11/fluxbox
-%config %{_sysconfdir}/X11/fluxbox/menu2
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/X11/fluxbox/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
 %dir %{_datadir}/fluxbox/nls
