@@ -1,0 +1,167 @@
+diff -Nur fluxbox-0.9.3/nls.orig/bg_BG/BaseDisplay.m fluxbox-0.9.3/nls/bg_BG/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/bg_BG/BaseDisplay.m	Sun Feb 24 18:55:42 2002
++++ fluxbox-0.9.3/nls/bg_BG/BaseDisplay.m	Wed Jun 11 10:48:22 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=cp1251
++
+ $ #XError
+ # %s:  X „Â¯Í‡: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/convert.awk fluxbox-0.9.3/nls/convert.awk
+--- fluxbox-0.9.3/nls.orig/convert.awk	Thu Apr  4 18:20:19 2002
++++ fluxbox-0.9.3/nls/convert.awk	Wed Jun 11 10:47:36 2003
+@@ -27,6 +27,8 @@
+   text = substr($0, 3)  
+   printf "%d %s\n", minor, text > output
+ }
+-  
++
++/^\$ codeset/ { print > output }
++
+ ! /^(\$|#)/ { print > output }
+ 
+diff -Nur fluxbox-0.9.3/nls.orig/da_DK/BaseDisplay.m fluxbox-0.9.3/nls/da_DK/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/da_DK/BaseDisplay.m	Tue Dec 11 20:47:36 2001
++++ fluxbox-0.9.3/nls/da_DK/BaseDisplay.m	Wed Jun 11 10:48:43 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X fejl: %s(%d) kode %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/de_DE/BaseDisplay.m fluxbox-0.9.3/nls/de_DE/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/de_DE/BaseDisplay.m	Sat Dec 14 15:24:01 2002
++++ fluxbox-0.9.3/nls/de_DE/BaseDisplay.m	Wed Jun 11 10:48:51 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X Fehler ! : %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/es_ES/BaseDisplay.m fluxbox-0.9.3/nls/es_ES/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/es_ES/BaseDisplay.m	Tue Dec 11 20:47:36 2001
++++ fluxbox-0.9.3/nls/es_ES/BaseDisplay.m	Wed Jun 11 10:49:00 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  Un error de X: %s(%d) clave de operaciÛn %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/et_EE/BaseDisplay.m fluxbox-0.9.3/nls/et_EE/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/et_EE/BaseDisplay.m	Tue Dec 11 20:47:37 2001
++++ fluxbox-0.9.3/nls/et_EE/BaseDisplay.m	Wed Jun 11 10:49:08 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X'i viga: %s(%d) opkood %d/%d\n  resurss 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/fr_FR/BaseDisplay.m fluxbox-0.9.3/nls/fr_FR/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/fr_FR/BaseDisplay.m	Tue Dec 11 20:47:37 2001
++++ fluxbox-0.9.3/nls/fr_FR/BaseDisplay.m	Wed Jun 11 10:49:27 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  Erreur de X %s(%d) opcodes %d/%d\n  ressource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/it_IT/BaseDisplay.m fluxbox-0.9.3/nls/it_IT/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/it_IT/BaseDisplay.m	Sun Oct 20 20:56:55 2002
++++ fluxbox-0.9.3/nls/it_IT/BaseDisplay.m	Wed Jun 11 10:50:02 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  errore di X: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/ja_JP/BaseDisplay.m fluxbox-0.9.3/nls/ja_JP/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/ja_JP/BaseDisplay.m	Sun Feb 24 18:51:59 2002
++++ fluxbox-0.9.3/nls/ja_JP/BaseDisplay.m	Wed Jun 11 10:50:20 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=eucjp
++
+ $ #XError
+ # %s:  X •®•È°º: %s(%d) opcodes %d/%d\n  resource 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/lv_LV/BaseDisplay.m fluxbox-0.9.3/nls/lv_LV/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/lv_LV/BaseDisplay.m	Tue Sep 10 00:55:25 2002
++++ fluxbox-0.9.3/nls/lv_LV/BaseDisplay.m	Wed Jun 11 10:50:40 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-13
++
+ $ #XError
+ # %s:  X kÔ˚da: %s(%d) opkodi %d/%d\n  resurss 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/pt_BR/BaseDisplay.m fluxbox-0.9.3/nls/pt_BR/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/pt_BR/BaseDisplay.m	Tue Dec 11 20:47:37 2001
++++ fluxbox-0.9.3/nls/pt_BR/BaseDisplay.m	Wed Jun 11 10:50:48 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X erro: %s(%d) opcodes %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/pt_PT/BaseDisplay.m fluxbox-0.9.3/nls/pt_PT/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/pt_PT/BaseDisplay.m	Mon Feb  4 07:45:18 2002
++++ fluxbox-0.9.3/nls/pt_PT/BaseDisplay.m	Wed Jun 11 10:50:57 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X erro: %s(%d) opÁıes %d/%d\n  recurso 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/ru_RU/BaseDisplay.m fluxbox-0.9.3/nls/ru_RU/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/ru_RU/BaseDisplay.m	Sat Jan 26 11:33:08 2002
++++ fluxbox-0.9.3/nls/ru_RU/BaseDisplay.m	Wed Jun 11 10:51:10 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-5
++
+ $ #XError
+ # %s:  œ€…¬À¡ X ”≈“◊≈“¡: %s(%d) ⁄Œ¡ﬁ≈Œ…— %d/%d\n “≈”’“” 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/sv_SE/BaseDisplay.m fluxbox-0.9.3/nls/sv_SE/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/sv_SE/BaseDisplay.m	Tue Dec 11 20:47:38 2001
++++ fluxbox-0.9.3/nls/sv_SE/BaseDisplay.m	Wed Jun 11 10:51:18 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-1
++
+ $ #XError
+ # %s:  X-fel: %s(%d) opkod %d/%d\n  resurs 0x%lx\n
+ $ #SignalCaught
+diff -Nur fluxbox-0.9.3/nls.orig/tr_TR/BaseDisplay.m fluxbox-0.9.3/nls/tr_TR/BaseDisplay.m
+--- fluxbox-0.9.3/nls.orig/tr_TR/BaseDisplay.m	Sun Dec 15 14:18:04 2002
++++ fluxbox-0.9.3/nls/tr_TR/BaseDisplay.m	Wed Jun 11 10:51:29 2003
+@@ -1,5 +1,7 @@
+ $set 1 #BaseDisplay
+ 
++$ codeset=iso-8859-9
++
+ $ #XError
+ # %s : X hatas˝ : %s ( %d ) opkodlar %d/%d\n  kaynak 0x%lx\n
+ $ #SignalCaught
