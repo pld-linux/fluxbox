@@ -20,6 +20,7 @@ Source4:        %{name}-pld.jpg
 Source5:        %{name}.menu
 Patch0:		%{name}-fontcache.patch
 Patch1:		%{name}-dont_generate_menu.patch
+Patch2:		%{name}-wheel_direction.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
@@ -63,6 +64,7 @@ o blackbox?
 %setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
