@@ -9,8 +9,9 @@ Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	1efd2ca0144ac3717d8d953df85d2160
 Source1:	%{name}.desktop
-URL:		http://fluxbox.sourceforge.net/
 Patch0:		%{name}-XFT.patch
+Patch1:		%{name}-nls-codesets.patch
+URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,9 +46,9 @@ seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
 o blackbox?
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -76,6 +77,25 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/fluxbox
-%{_datadir}/fluxbox/*
+%{_datadir}/fluxbox/[!n]*
+%dir %{_datadir}/fluxbox/nls
+%{_datadir}/fluxbox/nls/C
+%{_datadir}/fluxbox/nls/POSIX
+%{_datadir}/fluxbox/nls/US_ASCII
+%{_datadir}/fluxbox/nls/en*
+%lang(bg) %{_datadir}/fluxbox/nls/bg*
+%lang(da) %{_datadir}/fluxbox/nls/da*
+%lang(de) %{_datadir}/fluxbox/nls/de*
+%lang(es) %{_datadir}/fluxbox/nls/es*
+%lang(et) %{_datadir}/fluxbox/nls/et*
+%lang(fr) %{_datadir}/fluxbox/nls/fr*
+%lang(it) %{_datadir}/fluxbox/nls/it*
+%lang(ja) %{_datadir}/fluxbox/nls/ja*
+%lang(lv) %{_datadir}/fluxbox/nls/lv*
+%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
+%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
+%lang(ru) %{_datadir}/fluxbox/nls/ru*
+%lang(sv) %{_datadir}/fluxbox/nls/sv*
+%lang(tr) %{_datadir}/fluxbox/nls/tr*
 %{_wmpropsdir}/fluxbox.desktop
 %{_mandir}/man1/*
