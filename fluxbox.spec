@@ -1,24 +1,25 @@
 
-%define		snap 20040716
+%define		snap 20040806
 
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	0.%{snap}.2
+Release:	0.%{snap}.1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{version}_%{snap}.tar.bz2
-# Source0-md5:	bc0c1114d31d32c92d290df5d7e4641b
+Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
+# Source0-md5:	1190ad05bd94ecf0507f0fe3c6820a30
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
 Source4:        %{name}-pld.jpg
 Source5:        %{name}.menu
 Patch0:		%{name}-fontcache.patch
+Patch1:		%{name}-dont_generate_menu.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
@@ -59,8 +60,9 @@ seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
 o blackbox?
 
 %prep
-%setup -q -n %{name}-%{version}_%{snap}
+%setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -72,7 +74,8 @@ rm -f missing
 %configure \
 	--enable-slit \
 	--enable-kde \
-	--enable-gnome
+	--enable-gnome \
+	--enable-xinerama
 
 %{__make}
 
