@@ -1,18 +1,18 @@
 
-%define		snap 20040715
+%define		snap 20040716
 
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{version}_%{snap}.tar.bz2
-# Source0-md5:	d624c1ccc8284c02ed1542defb77aea4
+# Source0-md5:	bc0c1114d31d32c92d290df5d7e4641b
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
