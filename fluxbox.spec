@@ -11,11 +11,10 @@ Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	b96f9b23b6605274bf0f7c3f84d080f1
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
-Patch0:		%{name}-XFT.patch
-Patch1:		%{name}-nls-codesets.patch
+Patch0:		%{name}-nls-codesets.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
@@ -51,11 +50,10 @@ o blackbox?
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
-%{__aclocal}
+%{__aclocal} -I .
 %{__autoheader}
 %{__autoconf}
 %{__automake}
