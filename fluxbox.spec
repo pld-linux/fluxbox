@@ -94,7 +94,7 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/X11/fluxbox/menu2
 rm -rf $RPM_BUILD_ROOT
 
 %post
-vfmg -i -f -x -c -s fluxbox > %{_datadir}/fluxbox/menu2 2>/dev/null
+vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/X11/fluxbox/menu2 2>/dev/null
 
 %files
 %defattr(644,root,root,755)
