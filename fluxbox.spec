@@ -2,13 +2,13 @@ Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	0.9.6
+Version:	0.9.7
 Release:	1
 Epoch:         	0
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	966071616c1f9191d0dc104e0eec31bf
+# Source0-md5:	74577beaa9da41b7a6c11d893bc776e4
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Patch0:		%{name}-XFT.patch
@@ -99,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_datadir}/fluxbox/nls/it*
 %lang(ja) %{_datadir}/fluxbox/nls/ja*
 %lang(lv) %{_datadir}/fluxbox/nls/lv*
+%lang(nl) %{_datadir}/fluxbox/nls/nl*
 %lang(pt) %{_datadir}/fluxbox/nls/pt_PT
 %lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
 %lang(ru) %{_datadir}/fluxbox/nls/ru*
