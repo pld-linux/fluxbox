@@ -7,7 +7,7 @@ Release:	1
 Epoch:         	0
 License:	BSD-like
 Group:		X11/Window Managers
-Source0:	http://heanet.dl.sourceforge.net/sourceforge/fluxbox/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	74577beaa9da41b7a6c11d893bc776e4
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
