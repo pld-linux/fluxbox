@@ -3,7 +3,7 @@ Encoding=UTF-8
 Name=Fluxbox
 Comment=Very small and fast window manger
 Comment[pl]=Mały i szybki zarządca okien
-Exec=startfluxbox
+Exec=fluxbox
 Terminal=False
 TryExec=fluxbox
 
