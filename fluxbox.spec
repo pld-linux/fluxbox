@@ -7,7 +7,7 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.10
-Release:	0.%{snap}.2
+Release:	0.%{snap}.3
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 # generate initial menu
 [ -f /etc/sysconfig/vfmg ] && . /etc/sysconfig/vfmg
-[ $FLUXBOX = yes -o $FLUXBOX = 1 -o ! -f %{_sysconfdir}/menu2 ] && \
+[ "$FLUXBOX" = yes -o "$FLUXBOX" = 1 -o ! -f %{_sysconfdir}/menu2 ] && \
 	vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/menu2 2>/dev/null ||:
 
 %files
