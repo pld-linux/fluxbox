@@ -1,5 +1,6 @@
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
+Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.1
 Release:	1
@@ -35,6 +36,12 @@ Fluxbox jest zarz±dc± okien dla X Window opartym na Blackboksie
 pulpitami i prostym menu. Wbudowano weñ tak¿e algorytm rysowania
 dekoracji okien, które mog± byæ jednokolorowe, gradientowe lub
 trójwymiarowe.
+
+%description -l pt_BR
+Fluxbox é um gerenciador de janelas para X. Ele é baseado no código do
+Blackbox 0.61.1. Fluxbox tem a aparência do blackbox e pode utilizar
+seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
+o blackbox?
 
 %prep
 rm -rf $RPM_BUILD_ROOT
