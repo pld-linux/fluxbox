@@ -5,7 +5,7 @@ Version:	0.1.14
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fluxbox/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 URL:		http://fluxbox.sourceforge.net/
 Patch0:		%{name}-XFT.patch
@@ -17,6 +17,7 @@ Obsoletes:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _sysconfdir     /etc/X11/%{name}
+%define		_wmpropsdir	/usr/share/wm-properties
 
 %description
 Fluxbox is yet another windowmanager for X. It's based on the Blackbox
@@ -51,11 +52,11 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/wm-properties
+install -d $RPM_BUILD_ROOT%{_wmpropsdir}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/wm-properties/
+install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,5 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/*
-%{_datadir}/wm-properties/fluxbox.desktop
+%{_wmpropsdir}/fluxbox.desktop
 %{_mandir}/man1/*
