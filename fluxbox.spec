@@ -1,24 +1,24 @@
 
-%define		snap 20040505
+%define		snap 20040713
 
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	0.9.9
-Release:	0.%{snap}.5
+Release:	0.%{snap}.1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 Source0:	http://distfiles.pld-linux.org/src/%{name}-%{version}_%{snap}.tar.bz2
-# Source0-md5:	2f77544e07fedb5d1652885f74fc9dd3
+# Source0-md5:	ab5d7b420062881c4dae557d9842710d
 Source1:	%{name}.desktop
 Source2:        %{name}-xsession.desktop
 Source3:        %{name}-pld.style
 Source4:        %{name}-pld.jpg
 Source5:        %{name}.menu
-Patch0:		%{name}-nls-codesets.patch
+Patch0:		%{name}-fontcache.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
@@ -105,28 +105,28 @@ vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/menu2 2>/dev/null
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/menu2
 %dir %{_datadir}/fluxbox
 %{_datadir}/fluxbox/[!n]*
-%dir %{_datadir}/fluxbox/nls
-%{_datadir}/fluxbox/nls/C
-%{_datadir}/fluxbox/nls/POSIX
-%{_datadir}/fluxbox/nls/US_ASCII
-%{_datadir}/fluxbox/nls/en*
-%lang(bg) %{_datadir}/fluxbox/nls/bg*
-%lang(da) %{_datadir}/fluxbox/nls/da*
-%lang(de) %{_datadir}/fluxbox/nls/de*
-%lang(es) %{_datadir}/fluxbox/nls/es*
-%lang(et) %{_datadir}/fluxbox/nls/et*
-%lang(fr) %{_datadir}/fluxbox/nls/fr*
-%lang(it) %{_datadir}/fluxbox/nls/it*
-%lang(ja) %{_datadir}/fluxbox/nls/ja*
-%lang(lv) %{_datadir}/fluxbox/nls/lv*
-%lang(nl) %{_datadir}/fluxbox/nls/nl*
-%lang(pl) %{_datadir}/fluxbox/nls/pl*
-%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
-%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
-%lang(ru) %{_datadir}/fluxbox/nls/ru*
-%lang(sl) %{_datadir}/fluxbox/nls/sl*
-%lang(sv) %{_datadir}/fluxbox/nls/sv*
-%lang(tr) %{_datadir}/fluxbox/nls/tr*
+#%dir %{_datadir}/fluxbox/nls
+#%{_datadir}/fluxbox/nls/C
+#%{_datadir}/fluxbox/nls/POSIX
+#%{_datadir}/fluxbox/nls/US_ASCII
+#%{_datadir}/fluxbox/nls/en*
+#%lang(bg) %{_datadir}/fluxbox/nls/bg*
+#%lang(da) %{_datadir}/fluxbox/nls/da*
+#%lang(de) %{_datadir}/fluxbox/nls/de*
+#%lang(es) %{_datadir}/fluxbox/nls/es*
+#%lang(et) %{_datadir}/fluxbox/nls/et*
+#%lang(fr) %{_datadir}/fluxbox/nls/fr*
+#%lang(it) %{_datadir}/fluxbox/nls/it*
+#%lang(ja) %{_datadir}/fluxbox/nls/ja*
+#%lang(lv) %{_datadir}/fluxbox/nls/lv*
+#%lang(nl) %{_datadir}/fluxbox/nls/nl*
+#%lang(pl) %{_datadir}/fluxbox/nls/pl*
+#%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
+#%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
+#%lang(ru) %{_datadir}/fluxbox/nls/ru*
+#%lang(sl) %{_datadir}/fluxbox/nls/sl*
+#%lang(sv) %{_datadir}/fluxbox/nls/sv*
+#%lang(tr) %{_datadir}/fluxbox/nls/tr*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
 %{_datadir}/wallpapers/*
