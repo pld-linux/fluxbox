@@ -40,7 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
