@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_without	imlib2		# disable imlib2 (pixmap themes) support
 %bcond_with	old_wheel	# build with right wheel direction
 #
 #%define		snap 20041111
@@ -29,7 +30,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	imlib2-devel
+%{?with_imlib:BuildRequires:	imlib2-devel >= 1.0.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
@@ -38,8 +39,8 @@ Requires(post):	vfmg >= 0.9.16-3
 Requires:	vfmg >= 0.9.16-3
 Requires:	xinitrc-ng
 Provides:	blackbox
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	blackbox
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _sysconfdir     /etc/X11/%{name}
 %define		_wmpropsdir	/usr/share/wm-properties
@@ -91,7 +92,7 @@ echo "session.screen0.antialias: true" >> data/init.in
 	--enable-gnome \
 	--enable-xinerama \
 	--enable-nls \
-	--enable-imlib2
+	%{?with_imlib2:--enable-imlib2}
 
 %{__make}
 
