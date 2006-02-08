@@ -9,14 +9,14 @@ Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Summary(de):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
-Version:	0.9.13
+Version:	0.9.14
 #Release:	0.%{snap}.2
 Release:	1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	f9b7b3c3b8e1e9ce3449601b238d4fba
+# Source0-md5:	7641aaea532841e103e9705bb5b98f62
 #Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
@@ -25,6 +25,7 @@ Source4:	%{name}-pld.jpg
 Source5:	%{name}.menu
 Patch0:		%{name}-dont_generate_menu.patch
 Patch1:		%{name}-wheel_direction.patch
+Patch2:		%{name}-styles.patch
 URL:		http://fluxbox.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
@@ -77,6 +78,7 @@ Styles.
 %setup -q
 %patch0 -p1
 %{!?with_old_wheel:%patch1 -p1}
+%patch2 -p1
 
 echo "session.screen0.antialias: true" >> data/init.in
 
@@ -133,10 +135,12 @@ rm -rf $RPM_BUILD_ROOT
 #%{_datadir}/fluxbox/nls/POSIX
 #%{_datadir}/fluxbox/nls/US_ASCII
 #%{_datadir}/fluxbox/nls/en*
+%lang(be) %{_datadir}/fluxbox/nls/be*
 %lang(bg) %{_datadir}/fluxbox/nls/bg*
 %lang(cs) %{_datadir}/fluxbox/nls/cs*
 %lang(da) %{_datadir}/fluxbox/nls/da*
 %lang(de) %{_datadir}/fluxbox/nls/de*
+%lang(el) %{_datadir}/fluxbox/nls/el*
 %lang(es) %{_datadir}/fluxbox/nls/es*
 %lang(et) %{_datadir}/fluxbox/nls/et*
 %lang(fr) %{_datadir}/fluxbox/nls/fr*
@@ -152,6 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sl) %{_datadir}/fluxbox/nls/sl*
 %lang(sv) %{_datadir}/fluxbox/nls/sv*
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
+%lang(uk) %{_datadir}/fluxbox/nls/uk*
 %lang(vi) %{_datadir}/fluxbox/nls/vi*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
