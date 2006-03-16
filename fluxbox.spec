@@ -31,7 +31,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-%{?with_imlib:BuildRequires:	imlib2-devel >= 1.0.0}
+%{?with_imlib2:BuildRequires:	imlib2-devel >= 1.0.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	xft-devel
