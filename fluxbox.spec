@@ -3,21 +3,18 @@
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
 %bcond_with	old_wheel	# build with right wheel direction
 #
-#%define		snap 20041111
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Summary(de):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
-Version:	0.9.14
-#Release:	0.%{snap}.2
+Version:	0.9.15
 Release:	1
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	7641aaea532841e103e9705bb5b98f62
-#Source0:	http://ep09.pld-linux.org/~havner/%{name}-%{snap}.tar.bz2
+# Source0-md5:	5fd0353b79d433c117f650a53c254e88
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
@@ -25,17 +22,17 @@ Source4:	%{name}-pld.jpg
 Source5:	%{name}.menu
 Patch0:		%{name}-dont_generate_menu.patch
 Patch1:		%{name}-wheel_direction.patch
-Patch2:		%{name}-styles.patch
 URL:		http://fluxbox.sourceforge.net/
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 %{?with_imlib2:BuildRequires:	imlib2-devel >= 1.0.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	xft-devel
-BuildRequires:	xrender-devel
+BuildRequires:	xorg-lib-libXft-devel
+BuildRequires:	xorg-lib-libXinerama-devel
+%{?with_imlib2:BuildRequires:	xorg-lib-libXpm-devel}
+BuildRequires:	xorg-lib-libXrandr-devel
 Requires(post):	vfmg >= 0.9.16-3
 Requires:	vfmg >= 0.9.16-3
 Requires:	xinitrc-ng
@@ -78,7 +75,6 @@ Styles.
 %setup -q
 %patch0 -p1
 %{!?with_old_wheel:%patch1 -p1}
-%patch2 -p1
 
 echo "session.screen0.antialias: true" >> data/init.in
 
@@ -94,6 +90,8 @@ echo "session.screen0.antialias: true" >> data/init.in
 	--enable-gnome \
 	--enable-xinerama \
 	--enable-nls \
+	--enable-xft \
+	--enable-xrandr \
 	%{?with_imlib2:--enable-imlib2}
 
 %{__make}
@@ -132,9 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/fluxbox/[!n]*
 %dir %{_datadir}/fluxbox/nls
 %{_datadir}/fluxbox/nls/C
-#%{_datadir}/fluxbox/nls/POSIX
-#%{_datadir}/fluxbox/nls/US_ASCII
-#%{_datadir}/fluxbox/nls/en*
 %lang(be) %{_datadir}/fluxbox/nls/be*
 %lang(bg) %{_datadir}/fluxbox/nls/bg*
 %lang(cs) %{_datadir}/fluxbox/nls/cs*
@@ -148,7 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/fluxbox/nls/ja*
 %lang(ko) %{_datadir}/fluxbox/nls/ko*
 %lang(lv) %{_datadir}/fluxbox/nls/lv*
+%lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
+%lang(no) %{_datadir}/fluxbox/nls/no*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
 %lang(pt) %{_datadir}/fluxbox/nls/pt_PT
 %lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
@@ -158,6 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
 %lang(uk) %{_datadir}/fluxbox/nls/uk*
 %lang(vi) %{_datadir}/fluxbox/nls/vi*
+%lang(zh_CN) %{_datadir}/fluxbox/nls/zh*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
 %{_datadir}/wallpapers/*
