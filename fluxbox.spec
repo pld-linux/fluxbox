@@ -111,6 +111,8 @@ install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
 install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/fluxbox/menu
 touch $RPM_BUILD_ROOT%{_sysconfdir}/menu2
 
+rm -rf $RPM_BUILD_ROOT%{_datadir}/fluxbox/nls/no*
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -145,7 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(lv) %{_datadir}/fluxbox/nls/lv*
 %lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
-%lang(no) %{_datadir}/fluxbox/nls/no*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
 %lang(pt) %{_datadir}/fluxbox/nls/pt_PT
 %lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
