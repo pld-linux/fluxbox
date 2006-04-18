@@ -33,7 +33,7 @@ BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 %{?with_imlib2:BuildRequires:	xorg-lib-libXpm-devel}
 BuildRequires:	xorg-lib-libXrandr-devel
-Requires(post):	vfmg >= 0.9.16-3
+Requires(post):	vfmg >= 0.9.95
 Requires:	vfmg >= 0.9.16-3
 Requires:	xinitrc-ng
 Provides:	blackbox
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 # generate initial menu
 [ -f /etc/sysconfig/vfmg ] && . /etc/sysconfig/vfmg
 [ "$FLUXBOX" = yes -o "$FLUXBOX" = 1 -o ! -f %{_sysconfdir}/menu2 ] && \
-	vfmg -i -f -x -c -s fluxbox > %{_sysconfdir}/menu2 2>/dev/null ||:
+	vfmg fluxbox > %{_sysconfdir}/menu2 2>/dev/null ||:
 
 %files
 %defattr(644,root,root,755)
