@@ -1,7 +1,6 @@
 #
 # Conditional build:
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
-%bcond_with	old_wheel	# build with right wheel direction
 #
 %define 	_rc	rc
 %define	_rel	1
