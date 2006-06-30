@@ -1,20 +1,20 @@
 #
 # Conditional build:
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
-%bcond_with	old_wheel	# build with right wheel direction
 #
+%define		_rc	rc
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
 Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Summary(de):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
-Version:	0.9.15.1
-Release:	1
+Version:	1.0
+Release:	0.%{_rc}
 Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
-Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	098eb36a09338aabb63b938a5eab9ef6
+Source0:	http://kent.dl.sourceforge.net/fluxbox/%{name}-%{version}%{_rc}.tar.gz
+# Source0-md5:	2575d0b605bcacc406c5b8f89fb0d3c5
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
@@ -72,9 +72,8 @@ Blackbox. Es ist somit 100% kompatibel zu den Blackbox Themes und
 Styles.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 %patch0 -p1
-%{!?with_old_wheel:%patch1 -p1}
 
 echo "session.screen0.antialias: true" >> data/init.in
 
@@ -148,8 +147,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
-%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
-%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
+#%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
+#%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
 %lang(ru) %{_datadir}/fluxbox/nls/ru*
 %lang(sl) %{_datadir}/fluxbox/nls/sl*
 %lang(sv) %{_datadir}/fluxbox/nls/sv*
