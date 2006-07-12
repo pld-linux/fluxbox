@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
 #
-%define 	_rc	rc
+%define 	_rc	rc2
 %define	_rel	1
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
@@ -15,7 +15,7 @@ Epoch:		1
 License:	BSD-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}%{_rc}.tar.bz2
-# Source0-md5:	e0d3e8b41261fc9b03ac75c014051806
+# Source0-md5:	c270d29663d14470b39e9c1811fa6ff0
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
