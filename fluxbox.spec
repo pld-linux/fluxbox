@@ -35,7 +35,6 @@ BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 Requires(post):	vfmg >= 0.9.95
 Requires:	vfmg >= 0.9.16-3
-Requires:	xinitrc-ng
 Provides:	blackbox
 Obsoletes:	blackbox
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
