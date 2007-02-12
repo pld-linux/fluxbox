@@ -4,9 +4,9 @@
 %bcond_with	old_wheel	# build with right wheel direction
 #
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
-Summary(pl):	Ma³y i szybki zarz±dca okien dla X Window oparty o Blackbox
-Summary(pt_BR):	Fluxbox é um gerenciador de janelas baseado no Blackbox
-Summary(de):	Fluxbox ist ein weiterer Window Manager für X
+Summary(pl.UTF-8):   MaÅ‚y i szybki zarzÄ…dca okien dla X Window oparty o Blackbox
+Summary(pt_BR.UTF-8):   Fluxbox Ã© um gerenciador de janelas baseado no Blackbox
+Summary(de.UTF-8):   Fluxbox ist ein weiterer Window Manager fÃ¼r X
 Name:		fluxbox
 Version:	0.9.15.1
 Release:	1
@@ -50,23 +50,23 @@ theme/style compatibility). So what's the difference between fluxbox
 and blackbox then? The answer is: LOTS! Have a look at the homepage
 for more info ;)
 
-%description -l pl
-Fluxbox jest zarz±dc± okien dla X Window opartym na Blackboksie
-0.61.1. Jego zalet± jest estetyczny i szybki interfejs z wieloma
-pulpitami i prostym menu. Wbudowano weñ tak¿e algorytm rysowania
-dekoracji okien, które mog± byæ jednokolorowe, gradientowe lub
-trójwymiarowe.
+%description -l pl.UTF-8
+Fluxbox jest zarzÄ…dcÄ… okien dla X Window opartym na Blackboksie
+0.61.1. Jego zaletÄ… jest estetyczny i szybki interfejs z wieloma
+pulpitami i prostym menu. Wbudowano weÅ„ takÅ¼e algorytm rysowania
+dekoracji okien, ktÃ³re mogÄ… byÄ‡ jednokolorowe, gradientowe lub
+trÃ³jwymiarowe.
 
-%description -l pt_BR
-Fluxbox é um gerenciador de janelas para X. Ele é baseado no código do
-Blackbox 0.61.1. Fluxbox tem a aparência do blackbox e pode utilizar
-seus estilos, cores e temas. Então qual a diferença entre o fluxbox e
+%description -l pt_BR.UTF-8
+Fluxbox Ã© um gerenciador de janelas para X. Ele Ã© baseado no cÃ³digo do
+Blackbox 0.61.1. Fluxbox tem a aparÃªncia do blackbox e pode utilizar
+seus estilos, cores e temas. EntÃ£o qual a diferenÃ§a entre o fluxbox e
 o blackbox?
 
-%description -l de
-Fluxbox ist ein weiterer Window Manager für X basierend auf dem
-Quellcode von Blackbox 0.61.1. Fluxbox ähnelt Blackbox und behandelt
-Styles, Farben, Fensterplatzierungen und ähnliche Dinge genauso wie
+%description -l de.UTF-8
+Fluxbox ist ein weiterer Window Manager fÃ¼r X basierend auf dem
+Quellcode von Blackbox 0.61.1. Fluxbox Ã¤hnelt Blackbox und behandelt
+Styles, Farben, Fensterplatzierungen und Ã¤hnliche Dinge genauso wie
 Blackbox. Es ist somit 100% kompatibel zu den Blackbox Themes und
 Styles.
 
