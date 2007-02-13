@@ -4,9 +4,9 @@
 %bcond_with	old_wheel	# build with right wheel direction
 #
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
-Summary(pl.UTF-8):   Mały i szybki zarządca okien dla X Window oparty o Blackbox
-Summary(pt_BR.UTF-8):   Fluxbox é um gerenciador de janelas baseado no Blackbox
-Summary(de.UTF-8):   Fluxbox ist ein weiterer Window Manager für X
+Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
+Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
+Summary(de.UTF-8):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
 Version:	0.9.15.1
 Release:	1
