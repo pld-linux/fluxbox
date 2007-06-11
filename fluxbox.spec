@@ -11,7 +11,7 @@ Name:		fluxbox
 Version:	0.9.15.1
 Release:	1
 Epoch:		1
-License:	BSD-like
+License:	MIT-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
 # Source0-md5:	098eb36a09338aabb63b938a5eab9ef6
@@ -22,10 +22,9 @@ Source4:	%{name}-pld.jpg
 Source5:	%{name}.menu
 Patch0:		%{name}-dont_generate_menu.patch
 Patch1:		%{name}-wheel_direction.patch
-URL:		http://fluxbox.sourceforge.net/
+URL:		http://fluxbox.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gettext-devel
 %{?with_imlib2:BuildRequires:	imlib2-devel >= 1.0.0}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
