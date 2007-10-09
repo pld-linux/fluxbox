@@ -1,27 +1,25 @@
 #
 # Conditional build:
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
-%bcond_with	old_wheel	# build with right wheel direction
 #
 Summary:	Fluxbox is a windowmanager that is based on Blackbox
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Summary(de.UTF-8):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
-Version:	0.9.15.1
+Version:	1.0.0
 Release:	1
 Epoch:		1
 License:	MIT-like
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	098eb36a09338aabb63b938a5eab9ef6
+# Source0-md5:	990e276ead0d04421dce4080f485caca
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
 Source4:	%{name}-pld.jpg
 Source5:	%{name}.menu
 Patch0:		%{name}-dont_generate_menu.patch
-Patch1:		%{name}-wheel_direction.patch
 URL:		http://fluxbox.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -72,7 +70,6 @@ Styles.
 %prep
 %setup -q
 %patch0 -p1
-%{!?with_old_wheel:%patch1 -p1}
 
 echo "session.screen0.antialias: true" >> data/init.in
 
@@ -136,8 +133,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(da) %{_datadir}/fluxbox/nls/da*
 %lang(de) %{_datadir}/fluxbox/nls/de*
 %lang(el) %{_datadir}/fluxbox/nls/el*
+%lang(en) %{_datadir}/fluxbox/nls/en*
 %lang(es) %{_datadir}/fluxbox/nls/es*
 %lang(et) %{_datadir}/fluxbox/nls/et*
+%lang(fi) %{_datadir}/fluxbox/nls/fi*
 %lang(fr) %{_datadir}/fluxbox/nls/fr*
 %lang(it) %{_datadir}/fluxbox/nls/it*
 %lang(ja) %{_datadir}/fluxbox/nls/ja*
@@ -146,14 +145,15 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
-%lang(pt) %{_datadir}/fluxbox/nls/pt_PT
-%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR
 %lang(ru) %{_datadir}/fluxbox/nls/ru*
 %lang(sl) %{_datadir}/fluxbox/nls/sl*
 %lang(sv) %{_datadir}/fluxbox/nls/sv*
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
 %lang(uk) %{_datadir}/fluxbox/nls/uk*
 %lang(vi) %{_datadir}/fluxbox/nls/vi*
+%lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR*
+%lang(pt_PT) %{_datadir}/fluxbox/nls/pt_PT*
+%lang(sk_SK) %{_datadir}/fluxbox/nls/sk_SK*
 %lang(zh_CN) %{_datadir}/fluxbox/nls/zh*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
