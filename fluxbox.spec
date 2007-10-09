@@ -2,10 +2,10 @@
 # Conditional build:
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
 #
-Summary:	Fluxbox is a windowmanager that is based on Blackbox
+Summary:	Fluxbox - a windowmanager that is based on Blackbox
+Summary(de.UTF-8):	Fluxbox - ein weiterer Window Manager für X
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
-Summary(de.UTF-8):	Fluxbox ist ein weiterer Window Manager für X
 Name:		fluxbox
 Version:	1.0.0
 Release:	1
@@ -148,12 +148,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt_BR) %{_datadir}/fluxbox/nls/pt_BR*
 %lang(pt) %{_datadir}/fluxbox/nls/pt_PT*
 %lang(ru) %{_datadir}/fluxbox/nls/ru*
+%lang(sk) %{_datadir}/fluxbox/nls/sk*
 %lang(sl) %{_datadir}/fluxbox/nls/sl*
 %lang(sv) %{_datadir}/fluxbox/nls/sv*
 %lang(tr) %{_datadir}/fluxbox/nls/tr*
 %lang(uk) %{_datadir}/fluxbox/nls/uk*
 %lang(vi) %{_datadir}/fluxbox/nls/vi*
-%lang(sk) %{_datadir}/fluxbox/nls/sk*
 %lang(zh_CN) %{_datadir}/fluxbox/nls/zh_CN*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
