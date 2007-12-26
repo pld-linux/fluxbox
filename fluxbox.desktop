@@ -3,8 +3,9 @@ Name=Fluxbox
 Comment=Very small and fast window manger
 Comment[pl]=Mały i szybki zarządca okien
 Exec=fluxbox
-Terminal=False
+Terminal=false
 TryExec=fluxbox
+
 [Window Manager]
 SessionManaged=true
 # vi: encoding=utf-8
