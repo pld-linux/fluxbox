@@ -7,13 +7,13 @@ Summary(de.UTF-8):	Fluxbox - ein weiterer Window Manager für X
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	1.0.0
+Version:	1.1.0
 Release:	1
 Epoch:		1
 License:	MIT-like
 Group:		X11/Window Managers
-Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	990e276ead0d04421dce4080f485caca
+Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.gz
+# Source0-md5:	ad6656594f013cf818b989a5708b71c9
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
@@ -142,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/fluxbox/nls/ja*
 %lang(ko) %{_datadir}/fluxbox/nls/ko*
 %lang(lv) %{_datadir}/fluxbox/nls/lv*
+%lang(mk_MK) %{_datadir}/fluxbox/nls/mk_MK*
 %lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
@@ -155,7 +156,9 @@ rm -rf $RPM_BUILD_ROOT
 %lang(uk) %{_datadir}/fluxbox/nls/uk*
 %lang(vi) %{_datadir}/fluxbox/nls/vi*
 %lang(zh_CN) %{_datadir}/fluxbox/nls/zh_CN*
+%lang(zh_TW) %{_datadir}/fluxbox/nls/zh_TW*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
 %{_datadir}/wallpapers/*
 %{_mandir}/man1/*
+%{_mandir}/man5/*
