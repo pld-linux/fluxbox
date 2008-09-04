@@ -81,12 +81,11 @@ echo "session.screen0.antialias: true" >> data/init.in
 %{__automake}
 %configure \
 	--enable-slit \
-	--enable-kde \
 	--enable-gnome \
 	--enable-xinerama \
 	--enable-nls \
 	--enable-xft \
-	--enable-xrandr \
+	--enable-randr \
 	%{?with_imlib2:--enable-imlib2}
 
 %{__make}
