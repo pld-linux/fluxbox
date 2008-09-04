@@ -141,7 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/fluxbox/nls/ja*
 %lang(ko) %{_datadir}/fluxbox/nls/ko*
 %lang(lv) %{_datadir}/fluxbox/nls/lv*
-%lang(mk_MK) %{_datadir}/fluxbox/nls/mk_MK*
+%lang(mk) %{_datadir}/fluxbox/nls/mk_MK*
 %lang(nb) %{_datadir}/fluxbox/nls/nb*
 %lang(nl) %{_datadir}/fluxbox/nls/nl*
 %lang(pl) %{_datadir}/fluxbox/nls/pl*
