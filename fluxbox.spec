@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
 Version:	1.1.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	MIT-like
 Group:		X11/Window Managers
@@ -34,10 +34,11 @@ Requires(post):	vfmg >= 0.9.95
 Requires:	vfmg >= 0.9.16-3
 Provides:	blackbox
 Obsoletes:	blackbox
+Conflicts:	filesystem < 3.0-20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _sysconfdir     /etc/X11/%{name}
-%define		_wmpropsdir	/usr/share/wm-properties
+%define		_wmpropsdir	/usr/share/gnome/wm-properties
 
 %description
 Fluxbox is yet another windowmanager for X. It's based on the Blackbox
