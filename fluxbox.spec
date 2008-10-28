@@ -7,19 +7,19 @@ Summary(de.UTF-8):	Fluxbox - ein weiterer Window Manager für X
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	1.1.0
-Release:	2
+Version:	1.1.1
+Release:	0.1
 Epoch:		1
 License:	MIT-like
 Group:		X11/Window Managers
-Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.gz
-# Source0-md5:	ad6656594f013cf818b989a5708b71c9
+Source0:	http://dl.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
+# Source0-md5:	fa9fa8fe9a44f86522de5754f8b285ca
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
 Source4:	%{name}-pld.jpg
 Source5:	%{name}.menu
-Patch0:		%{name}-dont_generate_menu.patch
+#Patch0:		%{name}-dont_generate_menu.patch
 URL:		http://fluxbox.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -70,7 +70,7 @@ Styles.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 echo "session.screen0.antialias: true" >> data/init.in
 
