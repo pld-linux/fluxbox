@@ -118,7 +118,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/fbrun
+%attr(755,root,root) %{_bindir}/fbsetbg
+%attr(755,root,root) %{_bindir}/fbsetroot
+%attr(755,root,root) %{_bindir}/fluxbox
+%attr(755,root,root) %{_bindir}/fluxbox-generate_menu
+%attr(755,root,root) %{_bindir}/fluxbox-remote
+%attr(755,root,root) %{_bindir}/fluxbox-update_configs
+%attr(755,root,root) %{_bindir}/startfluxbox
 %dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/menu2
 %dir %{_datadir}/fluxbox
@@ -157,6 +164,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh_TW) %{_datadir}/fluxbox/nls/zh_TW*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/fluxbox.desktop
-%{_datadir}/wallpapers/*
-%{_mandir}/man1/*
-%{_mandir}/man5/*
+%{_datadir}/wallpapers/*.jpg
+%{_mandir}/man1/*.1*
+%{_mandir}/man5/*.5*
