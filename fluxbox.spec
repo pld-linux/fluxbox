@@ -30,6 +30,8 @@ BuildRequires:	xorg-lib-libXinerama-devel
 %{?with_imlib2:BuildRequires:	xorg-lib-libXpm-devel}
 BuildRequires:	xorg-lib-libXrandr-devel
 Requires(post):	vfmg >= 0.9.95
+Requires:	WindowMaker
+Requires:	gxmessage
 Requires:	vfmg >= 0.9.16-3
 Provides:	blackbox
 Obsoletes:	blackbox
