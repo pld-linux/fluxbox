@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	gnome		# build with support for GNOME2 wm-properties
+%bcond_with	gnome2		# build with support for GNOME2 wm-properties
 %bcond_without	imlib2		# disable imlib2 (pixmap themes) support
 #
 Summary:	Fluxbox - a windowmanager that is based on Blackbox
@@ -100,7 +100,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/{xsessions,wallpapers,%{name}/styles},%{_
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{?with_gnome:install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}}
+%{?with_gnome2:install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/styles/PLD
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/wallpapers
@@ -166,7 +166,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh_CN) %{_datadir}/fluxbox/nls/zh_CN*
 %lang(zh_TW) %{_datadir}/fluxbox/nls/zh_TW*
 %{_datadir}/xsessions/%{name}.desktop
-%{?with_gnome:%{_wmpropsdir}/fluxbox.desktop}
+%{?with_gnome2:%{_wmpropsdir}/fluxbox.desktop}
 %{_datadir}/wallpapers/*.jpg
 %{_mandir}/man1/*.1*
 %{_mandir}/man5/*.5*
