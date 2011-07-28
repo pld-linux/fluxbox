@@ -1,0 +1,30 @@
+--- fluxbox-1.3.1/src/FbTk/MacroCommand.hh~	2009-10-04 21:45:38.000000000 +0200
++++ fluxbox-1.3.1/src/FbTk/MacroCommand.hh	2011-07-28 12:31:21.200516416 +0200
+@@ -26,6 +26,7 @@
+ #include "RefCount.hh"
+ 
+ #include <vector>
++#include <cstring>
+ 
+ namespace FbTk {
+ 
+--- fluxbox-1.3.1/src/FbTk/LayerItem.hh~	2011-02-24 17:00:37.000000000 +0100
++++ fluxbox-1.3.1/src/FbTk/LayerItem.hh	2011-07-28 12:32:18.541516401 +0200
+@@ -26,6 +26,7 @@
+ #include "Layer.hh"
+ #include "NotCopyable.hh"
+ #include <vector>
++#include <cstring>
+ 
+ namespace FbTk {
+ 
+--- fluxbox-1.3.1/src/FbTk/MultLayers.hh~	2011-02-24 17:00:37.000000000 +0100
++++ fluxbox-1.3.1/src/FbTk/MultLayers.hh	2011-07-28 12:32:40.603516398 +0200
+@@ -24,6 +24,7 @@
+ #define FBTK_MULTLAYERS_HH
+ 
+ #include <vector>
++#include <cstring>
+ 
+ namespace FbTk {
+ 
