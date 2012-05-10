@@ -8,13 +8,13 @@ Summary(de.UTF-8):	Fluxbox - ein weiterer Window Manager für X
 Summary(pl.UTF-8):	Mały i szybki zarządca okien dla X Window oparty o Blackbox
 Summary(pt_BR.UTF-8):	Fluxbox é um gerenciador de janelas baseado no Blackbox
 Name:		fluxbox
-Version:	1.3.1
-Release:	3
+Version:	1.3.2
+Release:	1
 Epoch:		1
 License:	MIT-like
 Group:		X11/Window Managers
 Source0:	http://downloads.sourceforge.net/fluxbox/%{name}-%{version}.tar.bz2
-# Source0-md5:	0eaa940a69c0a876a520bb85d67b8bec
+# Source0-md5:	f95b0bdb9ee41bfac124bd0fc601f248
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-pld.style
@@ -32,8 +32,6 @@ BuildRequires:	xorg-lib-libXinerama-devel
 %{?with_imlib2:BuildRequires:	xorg-lib-libXpm-devel}
 BuildRequires:	xorg-lib-libXrandr-devel
 Requires(post):	vfmg >= 0.9.95
-Requires:	WindowMaker >= 0.92.0-13
-Requires:	gxmessage
 Requires:	vfmg >= 0.9.16-3
 Provides:	blackbox
 Obsoletes:	blackbox
@@ -73,7 +71,7 @@ Styles.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 echo "session.screen0.antialias: true" >> data/init.in
 
@@ -85,7 +83,7 @@ echo "session.screen0.antialias: true" >> data/init.in
 %{__automake}
 %configure \
 	--enable-slit \
-	--enable-gnome \
+	--disable-gnome \
 	--enable-xinerama \
 	--enable-nls \
 	--enable-xft \
